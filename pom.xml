@@ -15,7 +15,7 @@
 
     <groupId>com.rohan.tpc</groupId>
     <artifactId>the-pet-clinic</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>the-pet-clinic</name>
     <description>The Pet Clinic Project</description>
 
@@ -42,7 +42,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:rohansachdeva1990/the-pet-clinic.git</developerConnection>
-      <tag>the-pet-clinic-0.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
