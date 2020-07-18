@@ -1,4 +1,4 @@
-package com.rohan.spring.thepetclinic.model;
+package com.rohan.tpc.model;
 
 import java.time.LocalDate;
 
