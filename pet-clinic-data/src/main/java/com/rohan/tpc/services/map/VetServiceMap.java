@@ -2,9 +2,11 @@ package com.rohan.tpc.services.map;
 
 import com.rohan.tpc.model.Vet;
 import com.rohan.tpc.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override

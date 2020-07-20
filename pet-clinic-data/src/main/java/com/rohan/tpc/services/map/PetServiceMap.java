@@ -2,9 +2,11 @@ package com.rohan.tpc.services.map;
 
 import com.rohan.tpc.model.Pet;
 import com.rohan.tpc.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override

@@ -2,9 +2,11 @@ package com.rohan.tpc.services.map;
 
 import com.rohan.tpc.model.Owner;
 import com.rohan.tpc.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
