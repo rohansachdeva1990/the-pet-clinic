@@ -1,11 +1,13 @@
 package com.rohan.tpc.services.map;
 
 import com.rohan.tpc.model.Speciality;
-import com.rohan.tpc.services.SpecialitiesService;
+import com.rohan.tpc.services.SpecialityService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
+@Service
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();

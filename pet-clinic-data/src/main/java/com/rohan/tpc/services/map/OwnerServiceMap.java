@@ -41,6 +41,8 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         if (owner != null) {
             if (owner.getPets() != null) {
                 owner.getPets().forEach(pet -> {
+                    // Core idea is, the Id is only generated when we save it to our persistence
+                    // We check if every pet has a pet type
                     if (pet.getPetType() != null) {
                         if (pet.getPetType().getId() != null) {
                             pet.setPetType(petTypeService.save(pet.getPetType()));
@@ -49,8 +51,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                         throw new RuntimeException("Pet Type is required");
                     }
 
+                    // Owner passed in a pet which was not persisted or does not exist in DB.
                     if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
+
+                        // No idea we do this??
                         pet.setId(savedPet.getId());
                     }
                 });
