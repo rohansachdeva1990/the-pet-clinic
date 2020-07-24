@@ -20,7 +20,6 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         this.petService = petService;
     }
 
-
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -55,7 +54,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                     if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
 
-                        // No idea we do this??
+                        // A defensive programming pattern
                         pet.setId(savedPet.getId());
                     }
                 });
