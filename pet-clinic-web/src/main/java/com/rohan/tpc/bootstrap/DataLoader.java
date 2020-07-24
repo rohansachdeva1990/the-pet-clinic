@@ -1,10 +1,7 @@
 package com.rohan.tpc.bootstrap;
 
 import com.rohan.tpc.model.*;
-import com.rohan.tpc.services.OwnerService;
-import com.rohan.tpc.services.PetTypeService;
-import com.rohan.tpc.services.SpecialityService;
-import com.rohan.tpc.services.VetService;
+import com.rohan.tpc.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -90,10 +89,16 @@ public class DataLoader implements CommandLineRunner {
         kurosakisPet.setOwner(owner2);
         kurosakisPet.setBirthDate(LocalDate.now());
         kurosakisPet.setName("Rukia");
-        owner1.getPets().add(kurosakisPet);
+        owner2.getPets().add(kurosakisPet);
 
         ownerService.save(owner2);
 
+        Visit dragonVisit = new Visit();
+        dragonVisit.setPet(kurosakisPet);
+        dragonVisit.setDate(LocalDate.now());
+        dragonVisit.setDescription("Sneezy draggy");
+
+        visitService.save(dragonVisit);
         System.out.println("Loaded Owners....");
 
         // Vets
