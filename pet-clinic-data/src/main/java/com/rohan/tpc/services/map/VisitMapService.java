@@ -2,11 +2,13 @@ package com.rohan.tpc.services.map;
 
 import com.rohan.tpc.model.Visit;
 import com.rohan.tpc.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
