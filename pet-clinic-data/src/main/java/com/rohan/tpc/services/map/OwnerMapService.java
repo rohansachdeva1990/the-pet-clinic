@@ -1,6 +1,7 @@
 package com.rohan.tpc.services.map;
 
 import com.rohan.tpc.model.Owner;
+import com.rohan.tpc.model.Person;
 import com.rohan.tpc.model.Pet;
 import com.rohan.tpc.services.OwnerService;
 import com.rohan.tpc.services.PetService;
@@ -75,6 +76,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
